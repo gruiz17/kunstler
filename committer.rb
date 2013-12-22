@@ -1,13 +1,5 @@
 require 'date'
 require 'chronic'
-
-class Time
-  def to_datetime
-    seconds = sec + Rational(usec, 10**6)
-    offset = Rational(utc_offset, 60 * 60 * 24)
-    DateTime.new(year, month, day, hour, min, seconds, offset)
-  end
-end
 	
 class Committer
 	class << self
@@ -15,16 +7,20 @@ class Committer
 		def get_earliest_sunday
 			last_year = Date.new(Date.today.year - 1, Date.today.month, Date.today.day)
 			sunday = Chronic.parse('next sunday', :now => last_year)
-			return sunday.to_datetime
+			return Date.parse(sunday.to_s)
 		end
 
 		def get_latest_saturday
-			return Chronic.parse('last saturday').to_datetime
+			return Date.parse(Chronic.parse('last saturday').to_s)
 		end
 
 		def dates
 			get_earliest_sunday.upto(get_latest_saturday).to_a
 		end
+	end
+
+	def self.get_dates
+		return dates
 	end
 
 	def self.get_dates_to_commit(pattern)
