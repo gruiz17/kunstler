@@ -30,13 +30,12 @@ class Committer
 	def self.get_dates_to_commit(pattern)
 		commit_dates = []
 		i = 0
-		while (i < pattern.length)
-			if (pattern[i] == "1")
+		pattern.each_char do |c|
+			if (c == "1")
 				22.times do |j|
 					commit_dates << dates[j].to_time + j*3600
 				end
 			end
-			i += 1
 		end
 		return commit_dates
 	end
@@ -45,9 +44,8 @@ class Committer
 		dates.each do |date|
 			puts "committing! on "
 			puts date
-			f = File.open('dummy', 'w')
 			letters = ['a','b','c','d','e','f','g','h']
-			f << letters.shuffle
+			f = File.open('dummy', 'w') {|f| f << letters.shuffle.join('')}
 			`GIT_AUTHOR_DATE="#{date}" GIT_COMMITTER_DATE="#{date}" git commit -am "changed on #{date}"`
 		end
 	end
