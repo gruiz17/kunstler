@@ -43,6 +43,8 @@ class Committer
 
 	def self.actual_commit(dates)
 		dates.each do |date|
+			puts "committing! on "
+			puts date
 			f = File.open('dummy', 'w')
 			letters = ['a','b','c','d','e','f','g','h']
 			f << letters.shuffle
