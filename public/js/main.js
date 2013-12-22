@@ -11,6 +11,8 @@ var rect = c.getBoundingClientRect();
 
 var clicking = false;
 
+var sent = false;
+
 $(window).resize(function() {
   rect = c.getBoundingClientRect();
 });
@@ -61,13 +63,18 @@ $('#clear').click(function() {
 
 $('#finished').click(function() {
   console.log(grid.encode());
-
-  $.post('/', {pattern: grid.encode()})
-    .done(function(data) {
-      alert("Done! Go check out your terminal");
-      window.close();
-    }).fail(function() {
-      alert("It seems there has been an error sending data to the server :(");
-    });
+  if (!sent) {
+    $.post('/', {pattern: grid.encode()})
+      .done(function(data) {
+        alert("Done! Go check out your terminal");
+        sent = true;
+        window.close();
+      }).fail(function() {
+        alert("It seems there has been an error sending data to the server :(");
+      });
+  }
+  else {
+    alert("already sent request! Close down server and try again.")
+  }
 
 });
