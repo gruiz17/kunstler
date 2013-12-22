@@ -42,7 +42,6 @@ class Committer
 				f << letters.shuffle.join('')
 			end
 			`GIT_AUTHOR_DATE="#{date}" GIT_COMMITTER_DATE="#{date}" git commit -am "changed on #{date}"`
-			sleep(1.0/5.0)
 		end
 	end
 end
