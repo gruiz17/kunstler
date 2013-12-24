@@ -26,12 +26,13 @@ class Committer
 	def self.get_dates_to_commit(pattern)
 		commit_dates = []
 		i = 0
-		pattern.each_char do |c|
-			if (c == "1")
-				22.times do |j|
-					commit_dates << dates[j].to_time + j*3600
-				end
+		while i < pattern.length
+			if (pattern[i] == "1")
+				# 22.times do |j|
+				commit_dates << dates[i].to_time
+				# end
 			end
+			i += 1
 		end
 		return commit_dates
 	end
