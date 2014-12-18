@@ -16,6 +16,7 @@ Watch the commits in action...
 
 # Usage
 
+* Fork this to your profile and clone this repo to your machine.
 * `bash kunstler.sh`
 * Go to whatever port sinatra runs on in your browser.
 * Use the canvas tool to input your desired pattern.
@@ -25,3 +26,7 @@ Watch the commits in action...
 
 * Refinements
 * Figure out how to reverse commits
+
+# LICENSE
+
+MIT
