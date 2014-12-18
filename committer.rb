@@ -25,7 +25,7 @@ class Committer
 		while i < pattern.length
 			if (pattern[i] == "1")
 				25.times do |j|
-					commit_dates << dates[i].to_time + j
+					commit_dates << dates[i].to_time + j * 600
 				end
 			end
 			i += 1
