@@ -11,4 +11,5 @@ An easy GitHub commit graph art generator.
 
 # TODO
 
-* Refinements I guess
+* Refinements
+* Figure out how to reverse commits
