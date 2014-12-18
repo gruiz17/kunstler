@@ -1,6 +1,6 @@
 # künstler
 
-An easy GitHub commit graph art generator.
+An easy GitHub commit graph art generator. By [Gabriel Ruiz](https://github.com/gruiz17). Original source code is [here](https://github.com/gruiz17/kunstler) if you are cloning this.
 
 Use the Canvas tool to make your art...
 
