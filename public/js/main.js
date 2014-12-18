@@ -64,10 +64,10 @@ $('#finished').click(function() {
 
   $.post('/', {pattern: grid.encode()})
     .done(function(data) {
-      alert("done");
+      alert("Done! Go check out your terminal");
       window.close();
     }).fail(function() {
-      alert("error sending data");
+      alert("It seems there has been an error sending data to the server :(");
     });
 
 });
