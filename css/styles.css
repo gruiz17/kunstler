@@ -31,9 +31,13 @@ html, body {
 	margin: 0;
 }
 
+#select-all {
+	margin-left:5%;
+}
+
 .art-button {
 	margin-top: 10px;
-	margin-left: 5%;
+	margin-left: 2%;
 	padding: 10px;
 	float:left;
 	background-color: #ffffff;
@@ -43,10 +47,13 @@ html, body {
 .art-button:hover {
 	background-color:#000000;
 	color:#ffffff;
+	cursor: pointer;
 }
 
-#clear {
-	margin-left:2%;
+.active {
+	background-color:#000000;
+	color:#ffffff;
+	cursor: pointer;
 }
 
 .footer-button {
@@ -62,6 +69,7 @@ html, body {
 .footer-button:hover {
 	background-color:#000000;
 	color:#ffffff;
+	cursor: pointer;
 }
 
 #space {
@@ -71,9 +79,13 @@ html, body {
 #date-art {
 	margin-top: 10px;
 	margin: 0 auto;
-	width: 70%;
+	width: 60%;
 }
 
 #date-picker {
 	background-color: #000000;
+}
+
+#date-picker:active {
+	cursor: pointer;
 }

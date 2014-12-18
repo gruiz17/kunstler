@@ -13,6 +13,7 @@ var SquareGrid = (function () {
     this.squares = [];
     this.squareSide = canvas.width / 51
     this.canvas = canvas;
+    this.brush = 'draw';
     this.ctx = canvas.getContext('2d');
     this.width = canvas.width;
     this.height = canvas.height;
@@ -40,11 +41,11 @@ var SquareGrid = (function () {
     this.squares.push(col);
   }
 
-  SquareGrid.prototype.draw = function() {
+  SquareGrid.prototype.draw = function(color) {
     this.ctx.clearRect(0,0, this.width, this.height);
     this.squares.forEach(function(col) {
       col.forEach(function(square) {
-        square.draw();
+        square.draw(color);
       });
     });
   }
@@ -52,30 +53,41 @@ var SquareGrid = (function () {
   SquareGrid.prototype.changeSquare = function(mouseX, mouseY) {
     xPos = Math.floor(mouseX / this.squareSide);
     yPos = Math.floor(mouseY / this.squareSide);
-    console.log(yPos);
     // console.log(mouseX);
     // console.log(mouseY);
-    this.squares[xPos][yPos].changeColor("#6ee");
+    if (this.brush === 'erase') {
+      this.squares[xPos][yPos].changeColor('#b2b2b2');
+      this.squares[xPos][yPos].clicked = false;
+    }
+    else {
+      this.squares[xPos][yPos].changeColor('#6ee');
+      this.squares[xPos][yPos].clicked = true;
+    }
+  }
+
+  SquareGrid.prototype.changeBrush = function(brush) {
+    this.brush = brush;
   }
 
   return SquareGrid;
+
 })();
 
 var Square = (function() {
-  function Square(canvas, parentGrid, posX, posY, sideLength) {
+  function Square(canvas, parentGrid, posX, posY, sideLength, color) {
     this.canvas = canvas;
     this.ctx = canvas.getContext('2d');
     this.parentGrid = parentGrid;
-    this.color = "#b2b2b2";
+    this.color = ((typeof color === 'undefined') ? '#b2b2b2' : color);
     this.posX = posX;
     this.posY = posY;
     this.sideLength = sideLength;
     this.clicked = false;
   }
 
-  Square.prototype.draw = function() {
-    this.ctx.fillStyle = this.color;
-    this.ctx.strokeStyle = "#ffffff";
+  Square.prototype.draw = function(color) {
+    this.ctx.fillStyle = ((typeof color === 'undefined') ? this.color : color);
+    this.ctx.strokeStyle = '#ffffff';
     this.ctx.clearRect(this.posX, this.posY, this.sideLength, this.sideLength);
     this.ctx.fillRect(this.posX, this.posY, this.sideLength, this.sideLength);
     this.ctx.strokeRect(this.posX, this.posY, this.sideLength, this.sideLength);
@@ -87,4 +99,5 @@ var Square = (function() {
   }
 
   return Square;
+
 })();
