@@ -1,12 +1,9 @@
 GEM
   remote: https://rubygems.org/
   specs:
-    addressable (2.3.6)
     chronic (0.10.2)
     daemons (1.1.9)
     eventmachine (1.0.3)
-    launchy (2.4.3)
-      addressable (~> 2.3)
     rack (1.5.2)
     rack-protection (1.5.3)
       rack
@@ -25,6 +22,5 @@ PLATFORMS
 
 DEPENDENCIES
   chronic
-  launchy
   sinatra
   thin
