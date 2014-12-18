@@ -10,7 +10,7 @@ Watch the commits in action...
 
 ![tons of commits](images/absurd_commits.gif)
 
-...and boom! Your GitHub commit graph looks fancy!
+...and boom! Your GitHub commit graph looks fancy (note: I already had some art I forgot about in the location I planted the new art, whoops)!
 
 ![fancy](images/final_art.png)
 
