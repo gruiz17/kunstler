@@ -1,11 +1,20 @@
 require 'sinatra'
-require_relative 'committer'
+require 'json'
 
 get '/' do
 	erb:'index.html'
 end
 
 post '/' do
-	Committer.actual_commit(Committer.get_dates_to_commit(params[:pattern]))
+	param_hash = {:pattern => params[:pattern]}
+	File.open('pattern.json', 'w') do |f|
+		f.write(param_hash.to_json)
+	end
 	'hello'
+end
+
+post '/terminate' do
+  logger.info "Received terminate request!"
+  Thread.new { sleep 1; Process.kill 'INT', Process.pid }
+  halt 200
 end

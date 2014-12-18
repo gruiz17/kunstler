@@ -68,7 +68,7 @@ $('#finished').click(function() {
       .done(function(data) {
         alert("Done! Go check out your terminal");
         sent = true;
-        window.close();
+        $.post('/terminate');
       }).fail(function() {
         alert("It seems there has been an error sending data to the server :(");
       });
