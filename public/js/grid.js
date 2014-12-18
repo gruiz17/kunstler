@@ -41,11 +41,14 @@ var SquareGrid = (function () {
     this.squares.push(col);
   }
 
-  SquareGrid.prototype.draw = function(color) {
+  SquareGrid.prototype.draw = function(color, state) {
     this.ctx.clearRect(0,0, this.width, this.height);
     this.squares.forEach(function(col) {
       col.forEach(function(square) {
         square.draw(color);
+        if (!(typeof state === 'undefined')) {
+          square.clicked = state;
+        }
       });
     });
   }
@@ -67,6 +70,21 @@ var SquareGrid = (function () {
 
   SquareGrid.prototype.changeBrush = function(brush) {
     this.brush = brush;
+  }
+
+  SquareGrid.prototype.encode = function() {
+    var patternString = '';
+    this.squares.forEach(function(col) {
+      col.forEach(function(square) {
+        if (square.clicked) {
+          patternString += "1";
+        }
+        else {
+          patternString += "0";
+        }
+      });
+    });
+    return patternString;
   }
 
   return SquareGrid;

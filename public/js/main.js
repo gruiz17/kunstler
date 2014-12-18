@@ -52,9 +52,22 @@ $('#eraser').click(function() {
 });
 
 $('#select-all').click(function() {
-  grid.draw('#6ee');
+  grid.draw('#6ee', true);
 });
 
 $('#clear').click(function() {
-  grid.draw('#b2b2b2');
+  grid.draw('#b2b2b2', false);
+});
+
+$('#finished').click(function() {
+  console.log(grid.encode());
+
+  $.post('/', {pattern: grid.encode()})
+    .done(function(data) {
+      alert("done");
+      window.close();
+    }).fail(function() {
+      alert("error sending data");
+    });
+
 });
