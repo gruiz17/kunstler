@@ -1,13 +1,3 @@
-// testing
-var randomColor = function() {
-  var chars = '0123456789abcdef'.split('');
-  var finalColor = '#';
-  for (var i = 0; i < 6; i++ ) {
-      finalColor += chars[Math.floor(Math.random() * 16)];
-  }
-  return finalColor;
-}
-
 var SquareGrid = (function () {
   function SquareGrid(canvas) {
     this.squares = [];
