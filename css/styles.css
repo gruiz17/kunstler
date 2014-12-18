@@ -1,0 +1,79 @@
+@font-face {
+  font-family: 'aileronLight';
+  src: url('fonts/Aileron-Light.otf');
+}
+
+@font-face {
+  font-family: 'aileronRegular';
+  src: url('fonts/Aileron-Regular.otf');
+}
+
+
+html, body {
+	margin: 0;
+	height: 100%;
+	width: 100%;
+	background-color: #6C6C6C;
+	color: #ffffff;
+	font-family: 'aileronLight', sans-serif;
+}
+
+#header {
+	width: 90%;
+	margin: 0 auto;
+}
+
+#header > h1 {
+	margin-bottom:0;
+}
+
+#header > p {
+	margin: 0;
+}
+
+.art-button {
+	margin-top: 10px;
+	margin-left: 5%;
+	padding: 10px;
+	float:left;
+	background-color: #ffffff;
+	color: #000000;
+}
+
+.art-button:hover {
+	background-color:#000000;
+	color:#ffffff;
+}
+
+#clear {
+	margin-left:2%;
+}
+
+.footer-button {
+	margin-top: 10px;
+	margin-right: 5%;
+	padding: 10px;
+	float:right;
+	background-color: #ffffff;
+	color: #000000;
+
+}
+
+.footer-button:hover {
+	background-color:#000000;
+	color:#ffffff;
+}
+
+#space {
+	padding-bottom: 55px;
+}
+
+#date-art {
+	margin-top: 10px;
+	margin: 0 auto;
+	width: 80%;
+}
+
+#date-picker {
+	background-color: #000000;
+}
