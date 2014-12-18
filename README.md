@@ -1,4 +1,4 @@
-# Künstler
+# künstler
 
 An easy GitHub commit graph art generator.
 
