@@ -19,10 +19,6 @@ class Committer
 		end
 	end
 
-	def self.get_dates
-		return dates
-	end
-
 	def self.get_dates_to_commit(pattern)
 		commit_dates = []
 		i = 0
@@ -42,7 +38,9 @@ class Committer
 			puts "committing! on "
 			puts date
 			letters = ['a','b','c','d','e','f','g','h']
-			f = File.open('dummy', 'w') {|f| f << letters.shuffle.join('')}
+			f = File.open('dummy', 'w') do |f| 
+				f << letters.shuffle.join('')
+			end
 			`GIT_AUTHOR_DATE="#{date}" GIT_COMMITTER_DATE="#{date}" git commit -am "changed on #{date}"`
 		end
 	end
