@@ -8,7 +8,7 @@ end
 post '/' do
 	param_hash = {:pattern => params[:pattern]}
 	File.open('pattern.json', 'w') do |f|
-		f.write(param_hash.to_json)
+	  f.write(param_hash.to_json)
 	end
 	'hello'
 end
