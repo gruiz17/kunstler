@@ -94,13 +94,13 @@ var Square = (function() {
   }
 
   Square.prototype.draw = function(color) {
-    this.ctx.fillStyle = ((typeof color === 'undefined') ? this.color : color);
-    this.ctx.strokeStyle = '#ffffff';
     this.ctx.clearRect(this.posX, this.posY, this.sideLength, this.sideLength);
+    this.ctx.fillStyle = ((typeof color === 'undefined') ? this.color : color);
     this.ctx.fillRect(this.posX, this.posY, this.sideLength, this.sideLength);
+    this.ctx.strokeStyle = '#ffffff';
     this.ctx.strokeRect(this.posX, this.posY, this.sideLength, this.sideLength);
   }
-
+c
   Square.prototype.changeColor = function(color) {
     this.color = color;
     this.draw();
