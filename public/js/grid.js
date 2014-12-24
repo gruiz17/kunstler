@@ -100,7 +100,7 @@ var Square = (function() {
     this.ctx.strokeStyle = '#ffffff';
     this.ctx.strokeRect(this.posX, this.posY, this.sideLength, this.sideLength);
   }
-c
+
   Square.prototype.changeColor = function(color) {
     this.color = color;
     this.draw();
